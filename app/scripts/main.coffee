@@ -48,13 +48,16 @@ class window.App
     fetch: () ->
         console.log 'fetch'
         self = @
-        $.getJSON(
-            self.options.endpoint,
-            client_id: self.options.client_id
-        ).done((results) ->
-            self.onSuccess(results)
-        ).fail (error) ->
-            self.onError(error)
+        $.ajax(
+        	url: @options.endpoint
+        	dataType: 'jsonp'
+        	data: 
+        		client_id: @options.client_id
+        	success: (results) ->
+        		self.onSuccess(results)
+        	error: (error) ->
+        		self.onError(error)
+        )
             
             
 
