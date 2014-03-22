@@ -1,6 +1,6 @@
 # global Handlebars, App 
 # jshint undef: true, camelcase: false
-class App
+class window.App
     model: 
     	data: []
     tmpl: '''
@@ -16,25 +16,26 @@ class App
     constructor: (@options)->
         self = this
         
-        $('.jumbotron').fadeOut()
-        $('.marketing').empty()
-        
-								if self.options.interval
-									setInterval (->
-										self.fetch()
-									), self.options.interval
-								self.fetch()
+        if @options.interval
+									setInterval (=>
+										@fetch()
+									), @options.interval
+									
+								#Fetch data
+								self.fetch() if @options.endpoint
 								
         return @
     
     render: () ->
       console.log 'render'
       
+      $('.jumbotron').fadeOut()
+      $('.marketing').empty()
+      
       template = Handlebars.compile(@tmpl)
 						html = template(@model)
 						
 						$('.marketing').append(html)
-						$('[rel="tooltip"]').tooltip()
     
     onSuccess: (response) ->
         console.log 'onSuccess'
@@ -59,6 +60,6 @@ class App
 
 console.log "'Allo from CoffeeScript!"
 
-CLIENT_ID = 'ef2bd67b7dfb4bf8899999d61386d567';
-ENDPOINT = 'https://api.instagram.com/v1/media/popular?callback=?';
-window.app = new App(endpoint: ENDPOINT, client_id: CLIENT_ID, interval: 10000)
+#CLIENT_ID = 'ef2bd67b7dfb4bf8899999d61386d567';
+#ENDPOINT = 'https://api.instagram.com/v1/media/popular?callback=?';
+#window.app = new App(endpoint: ENDPOINT, client_id: CLIENT_ID, interval: 10000)
