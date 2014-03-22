@@ -19,21 +19,25 @@
 		</script>
  */
 
+
 /* global Handlebars, App */
 /* jshint undef: true, camelcase: false */
-(function(exports) {'use strict';
+(function(exports) {
+	'use strict';
 	function App(options) {
 		this.options = options || {};
 	}
 
-
 	exports.App = App;
 
 	App.prototype = {
+		
 		//Hold template instance
 		tmpl : $('#media-item-tmpl').html(),
+		
 		//Hold view data
 		model : null,
+		
 		//I handle initializing the view.
 		init : function() {
 			var self = this;
@@ -45,6 +49,7 @@
 			self.fetchMedia();
 
 		},
+		
 		//I handle rendering the view.
 		render : function() {
 			var template = Handlebars.compile(this.tmpl);
@@ -53,16 +58,19 @@
 			$('.marketing').append(html);
 			$('[rel="tooltip"]').tooltip();
 		},
+		
 		//Handle success
 		onSuccess : function(results) {
 			console.log(results);
 			this.model = results;
 			this.render();
 		},
+		
 		//Handle error
 		onError : function(error) {
 			console.log('error', error);
 		},
+		
 		//I handle fetching the most recent media from Instagram.
 		fetchMedia : function() {
 			var self = this;
