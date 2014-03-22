@@ -109,8 +109,15 @@ module.exports = function(grunt) {
 		// Jasmine testing framework configuration options
 		jasmine : {
 			all : {
+				src: 'app/scripts/**/*.js',
 				options : {
-					specs : 'test/spec/{,*/}*.js'
+					keepRunner: true,
+					specs : 'test/spec/*.js',
+					vendor: [
+						'app/bower_components/jquery/dist/jquery.js',
+						'app/bower_components/bootstrap/dist/js/bootstrap.js',
+						'app/bower_components/handlebars/handlebars.js',
+					],
 				}
 			}
 		},

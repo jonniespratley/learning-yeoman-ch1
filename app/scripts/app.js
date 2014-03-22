@@ -1,5 +1,5 @@
 /**
- * 		<script>
+ 		<script>
 			$(document).ready(function() {
 				'use strict';
 				
