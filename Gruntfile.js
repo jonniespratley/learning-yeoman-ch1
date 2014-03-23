@@ -54,7 +54,11 @@ module.exports = function(grunt) {
 				options : {
 					livereload : '<%= connect.options.livereload %>'
 				},
-				files : ['<%= config.app %>/{,*/}*.html', '.tmp/styles/{,*/}*.css', '.tmp/scripts/{,*/}*.js', '<%= config.app %>/images/{,*/}*']
+				files : ['<%= config.app %>/{,*/}*.html', 
+				'.tmp/styles/{,*/}*.css', 
+				'<%= config.app %>/scripts/{,*/}*.js', 
+				'.tmp/scripts/{,*/}*.js', 
+				'<%= config.app %>/images/{,*/}*']
 			}
 		},
 
@@ -117,11 +121,11 @@ module.exports = function(grunt) {
 				options : {
 					keepRunner: true,
 					helpers: [
-						'test/bower_components/jasmine-ajax/lib/mock-ajax.js'
+						//'test/bower_components/jasmine-ajax/lib/mock-ajax.js'
 					],
 					vendor: [
 						'app/bower_components/jquery/dist/jquery.js',
-						'app/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap.js',
+						'app/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js',
 						'app/bower_components/handlebars/handlebars.js'
 					],
 					specs : 'test/spec/*.js'

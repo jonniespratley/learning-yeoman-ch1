@@ -1,5 +1,4 @@
-/*global describe, it */
-'use strict';
+/*global describe, it */'use strict';
 (function() {
 	describe('Testing WebApp', function() {
 
@@ -12,6 +11,9 @@
 		};
 
 		describe('App', function() {
+			beforeEach(function() {
+				testApp = undefined;
+			});
 
 			it('should store options', function() {
 				testApp = new App(options);
@@ -19,20 +21,25 @@
 			});
 
 			it("should make JSONP request to the correct URL", function() {
-
-				spyOn($, "ajax");
+				spyOn($, "ajax").andCallThrough();
 
 				//Create new app with endpoint
 				testApp = new App({
-					endpoint : ENDPOINT
+					endpoint : ENDPOINT,
+					client_id : CLIENT_ID
 				});
 
 				//Set request
 				request = $.ajax.mostRecentCall.args[0];
 
+				testApp.log(request);
+
 				//Assert
 				expect(request.dataType).toEqual('jsonp');
 				expect(request.url).toEqual(ENDPOINT);
+				expect(request.data).toEqual({
+					client_id : CLIENT_ID
+				});
 			});
 
 		});
