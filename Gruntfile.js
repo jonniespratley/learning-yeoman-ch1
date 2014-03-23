@@ -120,8 +120,10 @@ module.exports = function(grunt) {
 				src: ['.tmp/scripts/*.js'],
 				options : {
 					keepRunner: true,
+					display: 'full',
+					summary: true,
 					helpers: [
-						//'test/bower_components/jasmine-ajax/lib/mock-ajax.js'
+						//'test/bower_components/jasmine-jquery/lib/jasmine-jquery.js'
 					],
 					vendor: [
 						'app/bower_components/jquery/dist/jquery.js',
