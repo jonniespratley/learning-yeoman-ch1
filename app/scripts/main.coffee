@@ -1,8 +1,9 @@
 # global Handlebars, App 
 # jshint undef: true, camelcase: false
+'use strict'
 class window.App
-    model: 
-    	data: []
+		model: 
+			data: []
     tmpl: '''
 	    {{#each data}}
 						<div class="col-sm-3">

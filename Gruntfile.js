@@ -104,7 +104,10 @@ module.exports = function(grunt) {
 				jshintrc : '.jshintrc',
 				reporter : require('jshint-stylish')
 			},
-			all : ['Gruntfile.js', '<%= config.app %>/scripts/{,*/}*.js', '!<%= config.app %>/scripts/vendor/*', 'test/spec/{,*/}*.js']
+			all : ['Gruntfile.js', 
+			'.tmp/scripts/{,*/}*.js', 
+			'<%= config.app %>/scripts/{,*/}*.js', 
+			'!<%= config.app %>/scripts/vendor/*', 'test/spec/{,*/}*.js']
 		},
 
 		// Jasmine testing framework configuration options
