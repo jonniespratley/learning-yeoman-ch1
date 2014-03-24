@@ -148,10 +148,12 @@
 			$(document).ready(function(){
 				CLIENT_ID = 'ef2bd67b7dfb4bf8899999d61386d567';
 				ENDPOINT = 'https://api.instagram.com/v1/media/popular';
+				ENDPOINT = 'http://jonniespratley.me:8181/api/v2/learning-yeoman/posts';
 				window.myapp = new App({
 					endpoint : ENDPOINT,
-					client_id : CLIENT_ID,
-					interval : 10000
+					client_id : CLIENT_ID
+					//,
+					// interval : 10000
 				});	
 			});
 		</script>

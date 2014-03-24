@@ -2,19 +2,32 @@
 # jshint undef: true, camelcase: false
 'use strict'
 class window.App
-	model: null
+	model: 
+		feature:
+			title: 'Chapter 1'
+			image: 'https://dl.dropboxusercontent.com/u/26906414/learning_yeoman/images/yo-hbp.png'
+			body: 'a starting point for a modern html5 web application.'
+		features: []
 	tmpl: '''
-			{{#each data}}
-					<div class="col-sm-3">
-						<a href="{{link}}" target="_blank" class="thumbnail" rel="tooltip" title="{{caption.text}}">
-							<img src="{{images.low_resolution.url}}" class="img-"/>
-						</a>
-					</div>
+			<div class="jumbotron">
+				<h1>{{feature.title}}</h1>
+				<img src="{{feature.image}}" class="img-"/>
+				<p class="lead">
+					{{feature.body}}
+				</p>
+			</div>
+			{{#each features}}
+			<div class="media">
+		    <img class="media-object pull-left img-thumbnail" src="{{image}}" alt="{{title}}"/>
+		    <h4>{{title}}</h4>
+		    <p>{{body}}</p>
+		  </div>
 				{{/each}}
 	'''
 	constructor: (@options)->
 		@log '1 - initialize'
 		self = this
+		@render()
 		if @options?.interval
 			setInterval (=>
 				@fetch()
@@ -25,6 +38,7 @@ class window.App
 	
 	render: () ->
 		@log '4 - render'
+		
 		#clean ui
 		$('.jumbotron').fadeOut()
 		$('.marketing').empty()
@@ -34,12 +48,12 @@ class window.App
 		html = template(@model)
 		
 		#Render to ui
-		$('.marketing').append(html)
-		$('[rel="tooltip"]').tooltip()
+		$('.marketing').html(html)
+		#$('[rel="tooltip"]').tooltip()
 	
 	onSuccess: (response) ->
 			@log '3 - onSuccess'
-			@model = response
+			@model.features = response if not response.data
 			@render()
 	
 	onError: (error) ->
