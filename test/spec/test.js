@@ -38,11 +38,14 @@
 				spyOn($, "ajax").andCallFake(function(e) {
 					e.success(response);
 				});
+				
 				//Create new app with endpoint
 				testApp = new App({
 					endpoint : ENDPOINT,
 					client_id : CLIENT_ID
 				});
+				
+				spyOn(testApp, 'fetch').andCallThrough();
 
 				//Set request to ajax call
 				request = $.ajax.mostRecentCall.args[0];
@@ -54,7 +57,11 @@
 					client_id : CLIENT_ID
 				});
 				expect(testApp.model.data.length).toEqual(3);
-
+				
+				
+				//expect(testApp.fetch).hasBeenCalled();
+				
+				
 				testApp.log($.ajax.mostRecentCall);
 				testApp.log(testApp);
 			});

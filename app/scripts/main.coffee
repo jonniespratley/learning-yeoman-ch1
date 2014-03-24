@@ -45,7 +45,7 @@ class window.App
 	onError: (error) ->
 			@log 'onError'
 	
-	fetch: () ->
+	fetch: () =>
 			@log '2 - fetch'
 			self = @
 			$.ajax(
