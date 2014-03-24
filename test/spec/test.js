@@ -1,20 +1,11 @@
 /*global describe, it */'use strict';
 (function() {
 	describe('Testing WebApp', function() {
-
 		var ENDPOINT = 'https://api.instagram.com/v1/media/popular';
 		var CLIENT_ID = 'ef2bd67b7dfb4bf8899999d61386d567';
-
 		var testApp, request, response, options;
-
 		response = {
-			data : [{
-				id : 1
-			}, {
-				id : 2
-			}, {
-				id : 3
-			}]
+			data : [1, 2, 3]
 		};
 
 		options = {
@@ -45,25 +36,14 @@
 					client_id : CLIENT_ID
 				});
 				
-				spyOn(testApp, 'fetch').andCallThrough();
-
 				//Set request to ajax call
 				request = $.ajax.mostRecentCall.args[0];
 
 				//Assert
 				expect(request.dataType).toEqual('jsonp');
 				expect(request.url).toEqual(ENDPOINT);
-				expect(request.data).toEqual({
-					client_id : CLIENT_ID
-				});
+				expect(request.data).toEqual({client_id : CLIENT_ID});
 				expect(testApp.model.data.length).toEqual(3);
-				
-				
-				//expect(testApp.fetch).hasBeenCalled();
-				
-				
-				testApp.log($.ajax.mostRecentCall);
-				testApp.log(testApp);
 			});
 
 		});
