@@ -127,7 +127,6 @@ module.exports = function(grunt) {
 					],
 					vendor: [
 						'app/bower_components/jquery/dist/jquery.js',
-						'app/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js',
 						'app/bower_components/handlebars/handlebars.js'
 					],
 					specs : 'test/spec/*.js'

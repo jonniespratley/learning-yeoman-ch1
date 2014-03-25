@@ -8,10 +8,10 @@
 			feature : {
 				title : 'Chapter 1',
 				body : 'a starting point for a modern web application.',
-				image : 'http://goo.gl/kZZ6dX'
+				image : 'http://goo.gl/kZZ6dX',
+				endpoint : null
 			},
 			features : [],
-			endpoint : null
 		};
 
 		it('should store options on the model', function() {
