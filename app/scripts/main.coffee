@@ -1,21 +1,20 @@
 'use strict'
 class window.App
-	el: '.container'
-	constructor: (@model)->
+	constructor: (@config)->
 		@log '1 - initialize'
-		@fetch() if @model.feature?.endpoint
+		@fetch() if @config.feature?.endpoint
 	
 	render: () ->
 		@log '4 - render'
 		template = Handlebars.compile(
-			$( @el ).find('script[type="text/x-handlebars-template"]').html()
+			$( @config.el ).find('script[type="text/x-handlebars-template"]').html()
 		)
-		html = template(@model)
-		$(@el).html(html)
+		html = template(@config)
+		$(@config.el).html(html)
 	
 	onSuccess: (response) ->
 			@log '3 - onSuccess'
-			@model.features = response
+			@config.features = response
 			@render()
 	
 	onError: (error) ->
@@ -25,7 +24,7 @@ class window.App
 			@log '2 - fetch'
 			self = @
 			$.ajax(
-				url: @model.feature.endpoint
+				url: @config.feature.endpoint
 				dataType: 'jsonp'
 				success: (results) -> 
 					self.onSuccess(results)
@@ -36,9 +35,4 @@ class window.App
 	log: (what)->
 		console?.log(what)
 	
-
-
-###
-We could initialize the app this way but then it is not testable standalone.
-###
 console.log "'Allo from CoffeeScript!"
