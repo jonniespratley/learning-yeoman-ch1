@@ -1,15 +1,17 @@
 'use strict'
 class window.App
-	el: '#app-tmpl'
+	el: '.container'
 	constructor: (@model)->
 		@log '1 - initialize'
-		@fetch() if @model?.endpoint
+		@fetch() if @model.feature?.endpoint
 	
 	render: () ->
 		@log '4 - render'
-		template = Handlebars.compile($(@el).html())
+		template = Handlebars.compile(
+			$( @el ).find('script[type="text/x-handlebars-template"]').html()
+		)
 		html = template(@model)
-		$('.container').html(html)
+		$(@el).html(html)
 	
 	onSuccess: (response) ->
 			@log '3 - onSuccess'
@@ -23,7 +25,7 @@ class window.App
 			@log '2 - fetch'
 			self = @
 			$.ajax(
-				url: self.model.endpoint
+				url: @model.feature.endpoint
 				dataType: 'jsonp'
 				success: (results) -> 
 					self.onSuccess(results)
