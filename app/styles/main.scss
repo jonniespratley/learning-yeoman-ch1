@@ -1,8 +1,22 @@
-$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
-
 // bower:scss
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
+
+$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+
+
+
+.media img{
+  width:65px;
+}
+.footer{
+  text-align:center;
+  font-size:80%;
+}
+.jumbotron {
+	padding: 15px 0;
+}
+
 
 .browsehappy {
     margin: 0.2em 0;
