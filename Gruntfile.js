@@ -119,6 +119,7 @@ module.exports = function(grunt) {
 			all : {
 				src: ['.tmp/scripts/*.js'],
 				options : {
+					//host: '127.0.0.1:9001',
 					keepRunner: true,
 					display: 'full',
 					summary: true,
@@ -365,7 +366,7 @@ module.exports = function(grunt) {
 			grunt.task.run(['clean:server', 'concurrent:test', 'autoprefixer']);
 		}
 
-		grunt.task.run(['connect:test', 'jasmine']);
+		grunt.task.run(['connect:test', 'jasmine', 'watch']);
 	});
 
 	grunt.registerTask('build', ['clean:dist', 'useminPrepare', 'concurrent:dist', 'autoprefixer', 'concat', 'cssmin', 'uglify', 'copy:dist', 'modernizr', 'rev', 'usemin', 'htmlmin']);
