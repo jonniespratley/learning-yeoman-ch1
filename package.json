@@ -40,7 +40,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "start": "node web",
+    "start": "node server",
     "test": "grunt test"
   },
   "main": "Gruntfile.js",
