@@ -366,7 +366,7 @@ module.exports = function(grunt) {
 			grunt.task.run(['clean:server', 'concurrent:test', 'autoprefixer']);
 		}
 
-		grunt.task.run(['connect:test', 'jasmine', 'watch']);
+		grunt.task.run(['connect:test', 'jasmine']);
 	});
 
 	grunt.registerTask('build', ['clean:dist', 'useminPrepare', 'concurrent:dist', 'autoprefixer', 'concat', 'cssmin', 'uglify', 'copy:dist', 'modernizr', 'rev', 'usemin', 'htmlmin']);
