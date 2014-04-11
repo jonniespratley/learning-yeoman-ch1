@@ -73,8 +73,11 @@
 				</div>
 	
 					<div class="footer">
-						<p>
-							{{sitecopy}}
+						<p class="pull-left">
+							{{ sitecopy }}
+						</p>
+						<p class="pull-right">
+							{{ version }}
 						</p>
 					</div>
 					
@@ -130,7 +133,8 @@
 					new App({
 						el: '.container',
 						sitetitle : 'Learning Yeoman',
-						sitecopy : '(c) 2014',
+						sitecopy : '2014 Copywrite',
+						version: '0.0.1',
 						feature : {
 							title : 'Chapter 1',
 							body : 'a starting point for a modern web application.',
