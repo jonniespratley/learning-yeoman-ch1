@@ -1,51 +1,44 @@
 /*global describe, it */'use strict';
 (function() {
-	describe('Testing WebApp', function() {
-		var ENDPOINT = 'https://api.instagram.com/v1/media/popular';
-		var CLIENT_ID = 'ef2bd67b7dfb4bf8899999d61386d567';
-		var testApp, request, response, options;
-		response = {
-			data : [1, 2, 3]
+	describe('Testing App', function() {
+		var testApp;
+		var options = {
+			sitetitle : 'Learning Yeoman',
+			sitecopy : '(c) 2014',
+			feature : {
+				title : 'Chapter 1',
+				body : 'a starting point for a modern web application.',
+				image : 'http://goo.gl/kZZ6dX',
+				endpoint : 'http://jonniespratley.me:8181/api/v2/learning-yeoman-ch1/posts'
+			},
+			features : null,
+			menu: [
+				{name: 'About', route: '/about'},
+				{name: 'Contact', route: '/contact'}
+			]
 		};
-
-		options = {
-			endpoint : null,
-			client_id : null
-		};
-
-		describe('App', function() {
-
-			beforeEach(function() {
-				testApp = undefined;
+		beforeEach(function(){
+			testApp = new App({
+				el: '.container',
+				sitetitle : 'Learning Yeoman',
+				sitecopy : '(c) 2014',
+				feature : {
+					title : 'Chapter 1',
+					body : 'a starting point for a modern web application.',
+					image : 'http://goo.gl/kZZ6dX',
+					endpoint : 'http://jonniespratley.me:8181/api/v2/learning-yeoman-ch1/posts'
+				},
+				features : null,
+				menu: [
+					{name: 'About', route: '/about'},
+					{name: 'Contact', route: '/contact'}
+				]
 			});
+		});
 
-			it('should store options', function() {
-				testApp = new App(options);
-				expect(testApp.options).toEqual(options);
-			});
-
-			it("should make JSONP request to the correct URL and set response on model", function() {
-				//Spy on ajax call
-				spyOn($, "ajax").andCallFake(function(e) {
-					e.success(response);
-				});
-				
-				//Create new app with endpoint
-				testApp = new App({
-					endpoint : ENDPOINT,
-					client_id : CLIENT_ID
-				});
-				
-				//Set request to ajax call
-				request = $.ajax.mostRecentCall.args[0];
-
-				//Assert
-				expect(request.dataType).toEqual('jsonp');
-				expect(request.url).toEqual(ENDPOINT);
-				expect(request.data).toEqual({client_id : CLIENT_ID});
-				expect(testApp.model.data.length).toEqual(3);
-			});
-
+		it('should store options on the model', function() {
+			testApp = new App(options);
+			expect(testApp.config).toEqual(options);
 		});
 
 	});

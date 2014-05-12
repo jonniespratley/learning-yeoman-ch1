@@ -1,11 +1,27 @@
-$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
-
 // bower:scss
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
+
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+
+
+
+
 .media img{
-  width: 65px;
+  width:65px;
 }
+.footer{
+  margin-top:25px;
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+.jumbotron {
+	padding: 15px 0;
+}
+
+
+>>>>>>> e264389028bcd228a6ffe8e6b39f72621ed73f38
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;

@@ -119,6 +119,7 @@ module.exports = function(grunt) {
 			all : {
 				src: ['.tmp/scripts/*.js'],
 				options : {
+					//host: '127.0.0.1:9001',
 					keepRunner: true,
 					display: 'full',
 					summary: true,
@@ -127,7 +128,6 @@ module.exports = function(grunt) {
 					],
 					vendor: [
 						'app/bower_components/jquery/dist/jquery.js',
-						'app/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js',
 						'app/bower_components/handlebars/handlebars.js'
 					],
 					specs : 'test/spec/*.js'
@@ -372,4 +372,5 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', ['clean:dist', 'useminPrepare', 'concurrent:dist', 'autoprefixer', 'concat', 'cssmin', 'uglify', 'copy:dist', 'modernizr', 'rev', 'usemin', 'htmlmin']);
 
 	grunt.registerTask('default', ['newer:jshint', 'test', 'build']);
+	grunt.registerTask('heroku:development', 'build');
 };

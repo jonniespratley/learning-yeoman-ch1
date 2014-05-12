@@ -1,5 +1,3 @@
-# global Handlebars, App 
-# jshint undef: true, camelcase: false
 'use strict'
 class window.App
 	model: 
@@ -32,9 +30,9 @@ class window.App
 			setInterval (=>
 				@fetch()
 			), @options.interval
-			
+		
 		#Fetch data
-		self.fetch() if @options?.endpoint
+		self.fetch() if @options.feature.endpoint
 	
 	render: () ->
 		@log '4 - render'
@@ -57,31 +55,21 @@ class window.App
 			@render()
 	
 	onError: (error) ->
-			@log 'onError'
+			@log error
 	
 	fetch: () =>
 			@log '2 - fetch'
 			self = @
 			$.ajax(
-				url: @options.endpoint
+				url: @options.feature.endpoint
 				dataType: 'jsonp'
-				data: 
-					client_id: @options.client_id
-				success: (results) ->
+				success: (results) -> 
 					self.onSuccess(results)
-				
-				error: (error) ->
+				error: (error) -> 
 					self.onError(error)
-				
 			)
+	
 	log: (what)->
 		console?.log(what)
-
-
-###
-We could initialize the app this way but then it is not testable standalone.
-###
-#CLIENT_ID = 'ef2bd67b7dfb4bf8899999d61386d567';
-#ENDPOINT = 'https://api.instagram.com/v1/media/popular?callback=?';
-#window.app = new App(endpoint: ENDPOINT, client_id: CLIENT_ID, interval: 10000)
+	
 console.log "'Allo from CoffeeScript!"
