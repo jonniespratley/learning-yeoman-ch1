@@ -5,3 +5,4 @@ dist
 app/bower_components
 test/bower_components
 .idea
+atlassian-ide-plugin.xml
