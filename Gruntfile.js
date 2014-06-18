@@ -139,8 +139,6 @@ module.exports = function (grunt) {
             all: {
                 options: {
                     run: true,
-	                log: true,
-	                logErrors: true,
 	                reporter: 'Spec',
 	                files: [
 		                '<%= config.app %>/scripts/{,*/}*.js'
