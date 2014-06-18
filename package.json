@@ -1,7 +1,10 @@
 {
   "name": "learning-yeoman-ch1",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.4.3",
+    "logfmt": "^1.1.2"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.5.0",
@@ -28,5 +31,13 @@
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "scripts": {
+    "start": "node server",
+    "test": "grunt test"
+  },
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
   }
 }
