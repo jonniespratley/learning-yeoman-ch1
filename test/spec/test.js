@@ -26,9 +26,6 @@ testApp = new App(options);
 
 
 
-test('App', function(){
-	ok(testApp.options !== null);
-});
 
 (function() {
 	describe('Testing WebApp', function() {
