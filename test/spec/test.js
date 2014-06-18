@@ -23,15 +23,13 @@ var assert = chai.assert,
 
 describe('Testing WebApp', function () {
 
-	beforeEach(function (done) {
+	beforeEach(function () {
 		testApp = new App(options);
-		done();
 	});
 
 	describe('App', function () {
-		it('should store options', function (done) {
-			expect(testApp.options).to.equal(options);
-			done();
+		it('should store options', function () {
+			expect.expect(testApp.options, 'App.options').to.equal(options);
 		});
 	});
 });
