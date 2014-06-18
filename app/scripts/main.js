@@ -27,11 +27,10 @@ window.App = (function () {
 	App.prototype.render = function () {
 		var html, template;
 		this.log('4 - render');
-		$('.jumbotron').fadeOut();
-		$('.marketing').empty();
+		$(this.options.el).empty();
 		template = Handlebars.compile(this.tmpl);
 		html = template(this.model);
-		return $('.marketing').html(html);
+		return $(this.options.el).html(html);
 	};
 
 	App.prototype.onSuccess = function (response) {
