@@ -16,9 +16,8 @@ window.App = (function () {
 		var self, _ref;
 		this.options = options;
 
-		this.log('1 - initialize');
+		this.log( '1 - initialize' );
 		self = this;
-		this.render();
 		if (this.options.feature.endpoint) {
 			self.fetch();
 		}
@@ -26,15 +25,17 @@ window.App = (function () {
 
 	App.prototype.render = function () {
 		var html, template;
-		this.log('4 - render');
-		$(this.options.el).empty();
-		template = Handlebars.compile(this.tmpl);
-		html = template(this.model);
-		return $(this.options.el).html(html);
+
+		$( this.options.el ).empty();
+		template = Handlebars.compile( this.tmpl );
+		html = template( this.model );
+
+		this.log( '4 - render' );
+		return $( this.options.el ).html( html );
 	};
 
 	App.prototype.onSuccess = function (response) {
-		this.log('3 - onSuccess');
+		this.log( '3 - onSuccess' );
 		if (!response.data) {
 			this.model.features = response;
 		}
@@ -42,31 +43,31 @@ window.App = (function () {
 	};
 
 	App.prototype.onError = function (error) {
-		return this.log(error);
+		return this.log( error );
 	};
 
 	App.prototype.fetch = function () {
 		var self;
-		this.log('2 - fetch');
+		this.log( '2 - fetch' );
 		self = this;
-		return $.ajax({
+		return $.ajax( {
 			url: this.options.feature.endpoint,
 			dataType: 'jsonp',
 			success: function (results) {
-				return self.onSuccess(results);
+				return self.onSuccess( results );
 			},
 			error: function (error) {
-				return self.onError(error);
+				return self.onError( error );
 			}
-		});
+		} );
 	};
 
 	App.prototype.log = function (what) {
-		return typeof console !== "undefined" && console !== null ? console.log(what) : void 0;
+		return typeof console !== "undefined" && console !== null ? console.log( what ) : void 0;
 	};
 
 	return App;
 
 })();
 
-console.log("'Allo from CoffeeScript!");
+console.log( "'Allo, Allo!" );

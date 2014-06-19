@@ -138,7 +138,8 @@ module.exports = function (grunt) {
         mocha: {
             all: {
                 options: {
-                    run: true,
+                  run: true,
+	                log: true,
 	                reporter: 'Spec',
 	                files: [
 		                '<%= config.app %>/scripts/{,*/}*.js'
