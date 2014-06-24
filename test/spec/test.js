@@ -1,37 +1,25 @@
-/*global describe, it */
+/*global App, expect, it, describe */
 'use strict';
-(function () {
-	describe( 'Learning Yeoman Ch1 Test', function () {
-		var testApp;
-		var options = {
-			sitetitle: 'Learning Yeoman',
-			sitecopy: '(c) 2014',
-			feature: {
-				title: 'Chapter 1',
-				body: 'a starting point for a modern web application.',
-				image: 'http://goo.gl/kZZ6dX',
-				endpoint: 'http://jonniespratley.me:8181/api/v2/learning-yeoman-ch1/posts'
-			},
-			features: null,
-			menu: [
-				{
-					name: 'About',
-					route: '/about'
-				},
-				{
-					name: 'Contact',
-					route: '/contact'
-				}
-			]
-		};
-
-		beforeEach( function () {
-			testApp = App.init( options );
+var testApp = null;
+var config = {
+	el: '.container',
+	sitetitle: 'Learning Yeoman',
+	sitecopy: '2014 Copywrite',
+	version: '0.0.1',
+	feature: {
+		title: 'Chapter 1',
+		body: 'a starting point for a modern web application.',
+		image: 'http://goo.gl/kZZ6dX',
+		endpoint: 'http://jonniespratley.me:8181/api/v2/learning-yeoman-ch1/posts'
+	},
+	features: null
+};
+testApp = App.init( config );
+describe( 'Learning Yeoman Chapter 1 Test', function () {
+	describe( 'App.init', function () {
+		it( 'should store config on instance', function (done) {
+			expect( testApp.config, 'App.config' ).to.equal( config );
+			done();
 		} );
-
-		it( 'should store options on the model', function () {
-			expect( testApp.config ).toEqual( options );
-		} );
-
 	} );
-})();
+} );
