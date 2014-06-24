@@ -1,6 +1,7 @@
 {
   "name": "learning-yeoman-ch1",
-  "version": "0.0.0",
+  "version": "0.0.1",
+	"repository": "https://github.com/jonniespratley/learning-yeoman-ch1",
   "dependencies": {
     "express": "^4.4.3",
     "logfmt": "^1.1.2"

@@ -1,7 +1,7 @@
 'use strict';
 
 var App = {
-	init: function (options) {
+	init: function (config) {
 		console.log( '1 - initialize' );
 		this.config = config;
 		if (this.config.feature && this.config.feature.endpoint) {
