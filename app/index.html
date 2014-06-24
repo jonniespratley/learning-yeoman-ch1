@@ -79,7 +79,6 @@
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/handlebars/handlebars.js"></script>
         <!-- endbower -->
@@ -116,7 +115,7 @@
         <!-- This  -could be done in the main.js -->
         <script>
 	        $(document).ready(function() {
-		        new App({
+		        App.init({
 			        el: '.container',
 			        sitetitle : 'Learning Yeoman',
 			        sitecopy : '2014 Copywrite',
