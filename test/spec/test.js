@@ -1,4 +1,4 @@
-/*global App, expect, it, describe */
+/*global describe, it, beforeEach, expect, App */
 'use strict';
 var testApp = null;
 var config = {

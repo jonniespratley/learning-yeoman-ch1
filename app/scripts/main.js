@@ -1,3 +1,4 @@
+/* global Handlebars */
 (function () {
 	'use strict';
 	window.App = {
@@ -40,6 +41,6 @@
 			} );
 		}
 	};
-})()
+})();
 
 console.log( 'Allo, Allo!' );
