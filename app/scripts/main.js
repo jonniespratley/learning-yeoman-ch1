@@ -1,8 +1,6 @@
-/* global Handlebars */
-
-(function (exports) {
+(function () {
 	'use strict';
-	exports.App = {
+	window.App = {
 		init: function (config) {
 			console.log( '1 - initialize' );
 			this.config = config;
@@ -42,6 +40,6 @@
 			} );
 		}
 	};
-})( window );
+})()
 
 console.log( 'Allo, Allo!' );

@@ -24,7 +24,7 @@
         <div class="container">
 
 	        <!-- Either inline template in coffeescript or external template in js, lets just keep it in js. -->
-	        <script type="text/x-handlebars-template">
+	        <script id="app-tmpl" type="text/x-handlebars-template">
 
 
 		        <div class="header">
@@ -117,6 +117,7 @@
 	        $(document).ready(function() {
 		        App.init({
 			        el: '.container',
+					tmpl: '#app-tmpl',
 			        sitetitle : 'Learning Yeoman',
 			        sitecopy : '2014 Copywrite',
 			        version: '0.0.1',
