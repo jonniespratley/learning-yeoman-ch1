@@ -10,7 +10,7 @@ var config = {
 		title: 'Chapter 1',
 		body: 'a starting point for a modern web application.',
 		image: 'http://goo.gl/kZZ6dX'
-		//endpoint: 'http://jonniespratley.me:8181/api/v2/learning-yeoman-ch1/posts'
+		//endpoint: 'http://goo.gl/DuHyjx'
 	},
 	features: null
 };
