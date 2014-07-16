@@ -11,11 +11,11 @@
 			return this;
 		},
 		render: function () {
-			var html, template;
 			console.log( '4 - render' );
-			template = Handlebars.compile( $( this.config.el ).find( 'script[type="text/x-handlebars-template"]' ).html() );
-			html = template( this.config );
-			return $( this.config.el ).html( html );
+			var template = Handlebars.compile( $( this.config.el ).find( 'script[type="text/x-handlebars-template"]' ).html() );
+			var html = template( this.config );
+			$( this.config.el ).html( html );
+			return this;
 		},
 		onSuccess: function (response) {
 			console.log( '3 - onSuccess' );
@@ -26,11 +26,10 @@
 			return this.log( error );
 		},
 		fetch: function () {
-			var self;
 			console.log( '2 - fetch' );
-			self = this;
-			return $.ajax( {
-				url: this.config.feature.endpoint,
+			var self = this;
+			$.ajax( {
+				url: self.config.feature.endpoint,
 				dataType: 'jsonp',
 				success: function (results) {
 					return self.onSuccess( results );
